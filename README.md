@@ -1,7 +1,7 @@
 # アプリの作成
 ```
-$ rails new multipe_genres_recipe
-$ cd multipe_genres_recipe
+$ rails new multiple_genres_recipe
+$ cd multiple_genres_recipe
 ```
 
 # モデルとスキャフォルドの作成
@@ -89,6 +89,17 @@ RecipeGenre.create([
 # シードの投入
 ```
 $ rails db:seed
+```
+
+# ルーティングの修正
+config/routes.rb
+```
+Rails.application.routes.draw do
+  root 'recipes#index'
+  resources :recipes
+  resources :genres
+  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+end
 ```
 
 # サーバーの起動
