@@ -16,6 +16,15 @@
     <%= form.text_field :name %>
   </div>
 
+  <div>
+    Genre<br>
+    <% Genre.all.each do |genre| %>
+      <%= form.check_box :genre_ids, { multiple: true }, genre.id, nil %>
+      <%= form.label :genre_ids, genre.name, value: genre.id %>
+    <% end %>
+    <p><%= link_to "ジャンルを追加したい場合", new_genre_path %> 注:このページには戻ってきません</p>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

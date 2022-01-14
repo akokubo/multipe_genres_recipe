@@ -6,6 +6,7 @@
   <thead>
     <tr>
       <th>Name</th>
+      <th>Genre</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -14,6 +15,9 @@
     <% @recipes.each do |recipe| %>
       <tr>
         <td><%= recipe.name %></td>
+        <td>
+          <%= (recipe.genres.all.map { |genre| genre.name}).join(', ') %>
+        </td>
         <td><%= link_to 'Show', recipe %></td>
         <td><%= link_to 'Edit', edit_recipe_path(recipe) %></td>
         <td><%= link_to 'Destroy', recipe, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -24,4 +28,5 @@
 
 <br>
 
-<%= link_to 'New Recipe', new_recipe_path %>
+<%= link_to 'New Recipe', new_recipe_path %> |
+<%= link_to 'Genres', genres_path %>
